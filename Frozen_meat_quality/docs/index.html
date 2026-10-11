@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module src.utils</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="src.html" class="white">src</a>.utils</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:src/utils.py">src/utils.py</a></td></tr></table>
+    <p><span class="code">Small&nbsp;reusable&nbsp;utilities&nbsp;for&nbsp;the&nbsp;frozen-meat&nbsp;packaging&nbsp;quality&nbsp;project.<br>
+&nbsp;<br>
+The&nbsp;functions&nbsp;are&nbsp;intentionally&nbsp;simple&nbsp;and&nbsp;are&nbsp;used&nbsp;for&nbsp;dataset&nbsp;checks,&nbsp;model<br>
+selection,&nbsp;and&nbsp;basic&nbsp;input&nbsp;validation.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="PIL.Image.html">PIL.Image</a><br>
+</td><td class="multicolumn"><a href="pandas.html">pandas</a><br>
+</td><td class="multicolumn"><a href="yaml.html">yaml</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-audit_dataset"><strong>audit_dataset</strong></a>(dataset_path, class_names)</dt><dd><span class="code">Count&nbsp;images,&nbsp;label&nbsp;files,&nbsp;empty&nbsp;labels,&nbsp;and&nbsp;class&nbsp;annotations.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dataset_path&nbsp;(str&nbsp;or&nbsp;pathlib.Path):&nbsp;Dataset&nbsp;root&nbsp;with&nbsp;train/valid/test.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names&nbsp;(list[str]):&nbsp;Dataset&nbsp;class&nbsp;names.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pandas.DataFrame:&nbsp;One&nbsp;summary&nbsp;row&nbsp;for&nbsp;each&nbsp;split.</span></dd></dl>
+ <dl><dt><a name="-check_dataset_errors"><strong>check_dataset_errors</strong></a>(dataset_path, class_names)</dt><dd><span class="code">Check&nbsp;YOLO&nbsp;dataset&nbsp;files&nbsp;for&nbsp;missing&nbsp;or&nbsp;invalid&nbsp;annotations.<br>
+&nbsp;<br>
+Empty&nbsp;label&nbsp;files&nbsp;are&nbsp;recorded&nbsp;for&nbsp;analysis&nbsp;but&nbsp;are&nbsp;not&nbsp;automatically<br>
+treated&nbsp;as&nbsp;corrupted&nbsp;data&nbsp;because&nbsp;they&nbsp;may&nbsp;represent&nbsp;valid&nbsp;no-object&nbsp;images.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dataset_path&nbsp;(str&nbsp;or&nbsp;pathlib.Path):&nbsp;Dataset&nbsp;root&nbsp;with&nbsp;train/valid/test.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names&nbsp;(list[str]):&nbsp;Dataset&nbsp;class&nbsp;names.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pandas.DataFrame:&nbsp;Diagnostic&nbsp;issues&nbsp;with&nbsp;split,&nbsp;file,&nbsp;type,&nbsp;and&nbsp;detail.</span></dd></dl>
+ <dl><dt><a name="-choose_best_model"><strong>choose_best_model</strong></a>(comparison_df, metric='mAP50_95')</dt><dd><span class="code">Select&nbsp;the&nbsp;model&nbsp;with&nbsp;the&nbsp;highest&nbsp;validation&nbsp;metric.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;comparison_df&nbsp;(pandas.DataFrame):&nbsp;Model&nbsp;comparison&nbsp;table.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;metric&nbsp;(str):&nbsp;Metric&nbsp;column&nbsp;used&nbsp;for&nbsp;selection.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;Model&nbsp;name&nbsp;from&nbsp;the&nbsp;best&nbsp;row.</span></dd></dl>
+ <dl><dt><a name="-read_class_names"><strong>read_class_names</strong></a>(yaml_path)</dt><dd><span class="code">Read&nbsp;class&nbsp;names&nbsp;from&nbsp;a&nbsp;YOLO&nbsp;dataset&nbsp;YAML&nbsp;file.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yaml_path&nbsp;(str&nbsp;or&nbsp;pathlib.Path):&nbsp;Path&nbsp;to&nbsp;the&nbsp;dataset&nbsp;YAML&nbsp;file.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list[str]:&nbsp;Class&nbsp;names&nbsp;in&nbsp;class-ID&nbsp;order.</span></dd></dl>
+ <dl><dt><a name="-validate_image_file"><strong>validate_image_file</strong></a>(image_path)</dt><dd><span class="code">Check&nbsp;whether&nbsp;an&nbsp;image&nbsp;path&nbsp;exists&nbsp;and&nbsp;can&nbsp;be&nbsp;opened.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image_path&nbsp;(str&nbsp;or&nbsp;pathlib.Path):&nbsp;Image&nbsp;file&nbsp;to&nbsp;validate.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple[bool,&nbsp;str]:&nbsp;Success&nbsp;flag&nbsp;and&nbsp;a&nbsp;short&nbsp;explanation.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>SUPPORTED_IMAGE_EXTENSIONS</strong> = {'.bmp', '.jpeg', '.jpg', '.png', '.webp'}</td></tr></table>
+</body></html>

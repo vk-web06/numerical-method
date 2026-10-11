@@ -1,0 +1,28 @@
+
+FROZEN-MEAT PACKAGING QUALITY
+
+Selected model: YOLO26s
+
+BASELINE VALIDATION
+Precision: 0.8573
+Recall: 0.4685
+mAP@50: 0.5593
+mAP@50-95: 0.3638
+
+ALTERNATIVE VALIDATION
+Precision: 0.6912
+Recall: 0.6972
+mAP@50: 0.6587
+mAP@50-95: 0.3983
+
+FINAL TEST
+Precision: 0.4394
+Recall: 0.6513
+mAP@50: 0.5902
+mAP@50-95: 0.2776
+
+LIMITATIONS
+- The dataset is strongly imbalanced.
+- Some classes have very few validation/test examples.
+- The wrinkle class may not have validation/test examples.
+- Each model is trained once with seed 42.

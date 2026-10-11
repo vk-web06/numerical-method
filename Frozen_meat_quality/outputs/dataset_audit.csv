@@ -1,0 +1,4 @@
+split,images,labels,empty_labels,loose-meat,packaging-error,twisted-meat,unsealed,wrinkle
+train,3349,3349,684,66,1712,72,1055,18
+valid,120,120,14,3,34,3,81,0
+test,80,80,12,3,23,4,49,0
