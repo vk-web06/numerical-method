@@ -85,7 +85,7 @@ Using 640 pixels gave slightly higher validation accuracy, while 512 pixels redu
 
 The development notebook is available here:
 
-https://colab.research.google.com/drive/1MdykoRC3BJ-YHzSfR3NPcFTYmfbHHBnZ?usp=sharing
+https://colab.research.google.com/drive/1XHTmUWRXnp9ZdVKz3vzFldd1IE9jKkrd?usp=sharing
 
 The repository also contains a standalone copy in `notebooks/`.
 
