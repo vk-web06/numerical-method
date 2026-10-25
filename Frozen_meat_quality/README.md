@@ -15,7 +15,7 @@ The aim of this project is to use object detection to identify packaging and mea
 
 ## Dataset
 
-The dataset is downloaded from Roboflow at runtime:
+The dataset used in this project is downloaded from Roboflow when the notebook is run
 
 - Workspace: `hello-2aqe0`
 - Project: `pork-rasher-error-packaging`
@@ -23,7 +23,7 @@ The dataset is downloaded from Roboflow at runtime:
 - Export format: `yolo26`
 - Dataset licence recorded in the provided `data.yaml`: **CC BY 4.0**
 
-The dataset is not committed to the repository. A Roboflow API key is requested interactively in Colab and must not be stored in source control.
+The dataset itself is not uploaded to this Github repository. The Roboflow API key is entered separately in Google Colab and is not saved in the code or repository.
 
 ### Audited dataset
 
@@ -33,7 +33,7 @@ The dataset is not committed to the repository. A Roboflow API key is requested 
 | Validation | 120 | 14 | 3 | 34 | 3 | 81 | 0 |
 | Test | 80 | 12 | 3 | 23 | 4 | 49 | 0 |
 
-There are **3549 images** and **3123 annotated objects**. The class distribution is highly imbalanced. `wrinkle` has only 18 annotations and has no validation or test examples, so its performance cannot be claimed as validated.
+There are **3549 images** and **3123 labelled objects**. The class distribution is highly imbalanced. `wrinkle` has only 18 annotations and has no validation or test examples, so the model's performance on the `wrinkle` class cannot be properly evaluated.  
 
 `dataset_errors.csv` records 710 empty-label files (684 train, 14 validation, 12 test). These are diagnostic entries, not automatically corrupted data; they may represent valid images containing no labelled defect.
 
@@ -60,7 +60,8 @@ The test set is not used for model selection.
 | YOLO26n | 0.8573 | 0.4685 | 0.5593 | 0.3638 | 12.47 | 28.50 |
 | **YOLO26s** | 0.6912 | **0.6972** | **0.6587** | **0.3983** | **11.20** | 31.55 |
 
-YOLO26s was selected because it achieved the highest validation mAP@50-95. It also achieved higher recall and mAP@50, although its precision was lower and its training time was slightly longer.
+YOLO26s was chosen as the final model because it had the higher validation mAP50-95,MaAP50, and recall. 
+Although YOLO26n had higher precision, YOLO26s was better at finding more of the actual defects. Its training time was also slightly longer. 
 
 ### Final test result - selected YOLO26s
 
