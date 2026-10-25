@@ -1,8 +1,9 @@
 # Frozen-Meat Packaging Quality Detection
 
-MMA3001 Numerical Methods and Machine Learning individual project.
+This project was completed for MMA3001 Numerical Method and Machine Learning
 
-This project uses object detection to identify visible defects in pork-rasher packaging images. The implemented scope is deliberately narrow: the model detects and localises five labelled defect classes rather than attempting a complete industrial quality-grading system.
+The aim of this project is to use object detection to identify packaging and meat defects in pork rasher images. The model detects the location of the defect and classifies it into one of five classes. 
+
 
 ## Target Classes
 
